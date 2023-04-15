@@ -9,11 +9,7 @@ const Timer = (props) => {
   const [httpError, setHttpError] = useState();
   const [timers, setTimers] =useState([]);
 
-
-
-
   useEffect(() => {
-    
 
   if(state.seconds%10 === 0){  
   
@@ -132,12 +128,18 @@ const Timer = (props) => {
       if(!response.ok){
         throw new Error('Something went wrong!');
       }
+      const responseData = await response.json();
+      fetchHandler();
     };
     
     fetchDelete().catch(error => {
     setHttpError(error.message);
     });
-    fetchHandler();
+    
+      
+      
+    
+    
   };
 
   return (
