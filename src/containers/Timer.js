@@ -54,7 +54,7 @@ const Timer = (props) => {
 
     
       interval = setInterval(() => {
-         dispatch("ADD", 1, state.timeStamp);        
+         dispatch("TICK", 1, state.timeStamp);        
       }, 1000);
     
 
