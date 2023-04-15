@@ -120,6 +120,8 @@ const Timer = (props) => {
 
 
   const deleteHandler =() => {
+
+    const confirm = window.confirm( 'Are you sure you want to delete?');
     const fetchDelete = async () => {
       const response = await fetch(
         'https://react-http-340ad-default-rtdb.europe-west1.firebasedatabase.app/timer.json', {method: 'DELETE'} 
@@ -131,10 +133,12 @@ const Timer = (props) => {
       const responseData = await response.json();
       fetchHandler();
     };
+    if(confirm){
+
     
     fetchDelete().catch(error => {
     setHttpError(error.message);
-    });
+    })};
     
       
       
