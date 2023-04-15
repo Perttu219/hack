@@ -153,11 +153,7 @@ const Timer = (props) => {
         {state.renderedSeconds === 60 ? 0 : state.renderedSeconds}s
       </div>
 
-      {!state.isPlay && <button onClick={() => dispatch("PLAY", state.timeStamp)}>{state.isPaused? 'Restart' : 'Play'}</button>}
-      {state.isPlay && <button onClick={() => dispatch("PAUSE")}>PAUSE</button>}
-      {state.isPaused && !state.isPlay && <button onClick={() => dispatch("UNPAUSE")}>UNPAUSE</button>}
       <button onClick={sendHandler}>SEND</button>
-      <button onClick={fetchHandler}>FETCH</button>
       <button onClick={() => dispatch("RESET")}>RESET</button>
       <button onClick={deleteHandler}>DELETE</button>
       <button onClick={() => dispatch("FAKE", Math.floor(Math.random() * (19200000 - 1200000 + 1) + 1200000))}>Fake timestamp</button>
