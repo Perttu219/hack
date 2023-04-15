@@ -150,7 +150,7 @@ const Timer = (props) => {
           )
         }
       >
-        Cheat
+        Fake timestamp
       </button>
       <br />
       {state.timers.toString().split("|")[0]}
