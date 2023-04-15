@@ -6,8 +6,6 @@ import "./Timer.css";
 
 const Timer = (props) => {
   const [state, dispatch] = useStore();
-  const [httpError, setHttpError] = useState();
-  const [timers, setTimers] =useState([]);
 
   useEffect(() => {
 
@@ -41,7 +39,7 @@ const Timer = (props) => {
     };
 
     fetchTimerStamps().catch(error => {
-    setHttpError(error.message);
+    console.log(error.message);
     });           
     }, []);
     
@@ -110,11 +108,11 @@ const Timer = (props) => {
         temp += timer.seconds+ " seconds | ";
       }
       
-      setTimers(temp);  
+      dispatch("ADDTIMER", temp);
     };
     
     fetchTimers().catch(error => {
-    setHttpError(error.message);
+    console.log(error.message);
     });
   };
 
@@ -137,7 +135,7 @@ const Timer = (props) => {
 
     
     fetchDelete().catch(error => {
-    setHttpError(error.message);
+      console.log(error.message);
     })};
     
       
@@ -164,17 +162,17 @@ const Timer = (props) => {
       
 
       
-      <br />{timers.toString().split('|')[0]}
-      <br />{timers.toString().split('|')[1]}
-      <br />{timers.toString().split('|')[2]}
-      <br />{timers.toString().split('|')[3]}
-      <br />{timers.toString().split('|')[4]}
-      <br />{timers.toString().split('|')[5]}
-      <br />{timers.toString().split('|')[6]}
-      <br />{timers.toString().split('|')[7]}
-      <br />{timers.toString().split('|')[8]}
-      <br />{timers.toString().split('|')[9]}
-      <br />{timers.toString().split('|')[10]}
+      <br />{state.timers.toString().split('|')[0]}
+      <br />{state.timers.toString().split('|')[1]}
+      <br />{state.timers.toString().split('|')[2]}
+      <br />{state.timers.toString().split('|')[3]}
+      <br />{state.timers.toString().split('|')[4]}
+      <br />{state.timers.toString().split('|')[5]}
+      <br />{state.timers.toString().split('|')[6]}
+      <br />{state.timers.toString().split('|')[7]}
+      <br />{state.timers.toString().split('|')[8]}
+      <br />{state.timers.toString().split('|')[9]}
+      <br />{state.timers.toString().split('|')[10]}
       <br />Current timeStamp in use: {state.timeStamp}
     </div>
   );

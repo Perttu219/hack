@@ -68,7 +68,7 @@ const configureStore = () => {
             renderedMinutes: state.renderedMinutes,
             isPlay: state.isPlay,
             ticketNumber: state.ticketNumber,
-            timers: value[0].ticket + " " + value[0].seconds + " seconds",
+            timers: value,
         }),
         ADDTIMESTAMP: (state, value) => ({
             timeStamp: value,
